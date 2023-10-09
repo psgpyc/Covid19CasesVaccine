@@ -1,10 +1,13 @@
 USE CovidData;
-DROP TABLE IF EXISTS CovidVac;
-CREATE TABLE CovidVac (
+
+DROP TABLE IF EXISTS covidvac;
+CREATE TABLE covidvac (
 	iso_code VARCHAR(50),
     continent VARCHAR(100),
     location VARCHAR(100),
     date DATE,
+    population INT,
+    total_tests INT,
     new_tests INT,
     total_tests_per_thousand FLOAT,
     new_tests_per_thousand FLOAT,
@@ -41,7 +44,6 @@ CREATE TABLE CovidVac (
     hospital_beds_per_thousand FLOAT,
     life_expectancy FLOAT,
     human_development_index FLOAT,
-    population FLOAT,
     excess_mortality_cumulative_absolute FLOAT,
     excess_mortality_cumulative FLOAT,
     excess_mortality FLOAT,
@@ -51,6 +53,6 @@ CREATE TABLE CovidVac (
 SELECT COUNT(*) FROM CovidVac;
 
 
-LOAD DATA LOCAL INFILE '/Users/paritoshsharmaghimire/Desktop/SqlQueries/DataSets/CovidVaccinations.csv' INTO TABLE CovidVac
+LOAD DATA LOCAL INFILE '/Users/paritoshsharmaghimire/Documents/Data Sets/covidvac.csv' INTO TABLE covidvac
 FIELDS TERMINATED BY ','
 IGNORE 1 LINES;

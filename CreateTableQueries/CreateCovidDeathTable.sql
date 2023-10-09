@@ -1,12 +1,12 @@
-
 USE CovidData;
 
-DROP TABLE IF EXISTS CovidDeath;
-CREATE TABLE CovidDeath (
+DROP TABLE IF EXISTS coviddeath;
+CREATE TABLE coviddeath (
 	iso_code VARCHAR(20),
     continent VARCHAR(100),
     location VARCHAR(255),
     date DATE,
+    population INT,
     total_cases INT,
     new_cases INT,
     new_cases_smoothed FLOAT,
@@ -27,17 +27,17 @@ CREATE TABLE CovidDeath (
     weekly_icu_admissions INT,
     weekly_icu_admissions_per_million FLOAT,
     weekly_hosp_admissions FLOAT,
-    weekly_hosp_admissions_per_million FLOAT,
-    total_tests FLOAT
+    weekly_hosp_admissions_per_million FLOAT
+    
 );
 
-SELECT * FROM CovidDeath;
+SELECT * FROM coviddeath;
 
 -- IMPORT DATA
 
--- /Users/paritoshsharmaghimire/Desktop/SqlQueries/DataSets/CovidDeaths.csv  
+-- /Users/paritoshsharmaghimire/Documents/Data Sets/coviddeaths.csv  
 
-LOAD DATA LOCAL INFILE '/Users/paritoshsharmaghimire/Desktop/SqlQueries/DataSets/CovidDeaths.csv' INTO TABLE CovidDeath
+LOAD DATA LOCAL INFILE '/Users/paritoshsharmaghimire/Desktop/CovidAnalysis/DataSets/coviddeaths.csv' INTO TABLE coviddeath
 FIELDS TERMINATED BY ','
 IGNORE 1 LINES;
 
